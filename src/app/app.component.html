@@ -47,6 +47,18 @@
               *ngIf="!signupForm.valid &&signupForm.touched">
               Please enter a valid Data!
             </span>
+
+            <div formArrayName="hobbies">
+              <h4>Your hobbies:</h4>
+              <button class="btn btn-primary" type="button"
+              (click)="addHobbie()">Add Hobby</button>
+              <div class="form-group"  *ngFor="let hobbyControl of getControls(); let i = index;">
+                <input type="text" class="form-control" [formControlName]="i"/>
+              </div>
+            </div>
+
+            <br/>
+
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
